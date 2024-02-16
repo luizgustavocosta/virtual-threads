@@ -1,0 +1,1 @@
+https://api-docs.fraud.net/docs/public-apis/395e4a8yfue3b-transaction-check

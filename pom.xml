@@ -1,0 +1,12 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.costa.luiz</groupId>
+    <artifactId>virtual-threads</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>risk-service</module>
+        <module>transfer-service</module>
+        <module>main-service</module>
+    </modules>
+</project>
