@@ -3,7 +3,6 @@ package com.costa.luiz.bank.model.transfer;
 import com.costa.luiz.bank.configuration.BankProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -31,7 +30,7 @@ public class TransferService {
         transferClient = restClientBuilder.baseUrl(bankProperties.getTransferServiceUrl()).build();
     }
 
-    public String newTransfer(Transfer transfer) {
+    public String transfer(Transfer transfer) {
         try {
             var risk = getRiskTransaction(transfer).getBody();
             switch (risk) {
@@ -94,7 +93,8 @@ public class TransferService {
             log.info("BankFlow {}", bankFlow.get());
             return bankFlow.get().getBody();
         } catch (ExecutionException | InterruptedException exception) {
-            throw new IllegalStateException(exception);
+            Thread.currentThread().interrupt();
+            return "The following error happened "+exception.getCause();
         }
     }
 
@@ -121,7 +121,6 @@ public class TransferService {
     }
 
     public String newTransferConcurrent(Transfer newTransfer) {
-        long start = System.nanoTime();
         log.info("Current thread {}", Thread.currentThread());
 //        try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
         try (ExecutorService executorService = Executors.newSingleThreadExecutor()) {
@@ -132,7 +131,8 @@ public class TransferService {
             }
             return "Money transferred";
         } catch (ExecutionException | InterruptedException exception) {
-            throw new IllegalStateException(exception);
+            Thread.currentThread().interrupt();
+            return "The following error happened "+exception.getCause();
         }
     }
 }

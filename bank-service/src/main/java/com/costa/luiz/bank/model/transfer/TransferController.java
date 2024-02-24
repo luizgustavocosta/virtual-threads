@@ -33,55 +33,59 @@ public class TransferController {
     ResponseEntity<String> createANewTransfer(@RequestBody @Valid Transfer newTransfer) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .body(transferService.newTransfer(newTransfer));
+                .body(transferService.transfer(newTransfer));
     }
 
     @GetMapping("/old-fashion")
     ResponseEntity<String> oldFashion() {
         var correlationId = MDC.get(MDCInterceptor.CORRELATION_ID_KEY);
+        var start = Instant.now();
         log.info("{} - Starting the old-fashion processing - {}", correlationId, Thread.currentThread());
-        Instant start = Instant.now();
         var oldFashion = transferService.newTransferOldFashion(mockTransfer());
-        log.info("{}  - End of execution. Took {} milliseconds, using {}",
+        log.info("{}  - End of the old-fashion processing. Took {} milliseconds, using {}",
                 correlationId,
-                Duration.between(start, Instant.now()).toMillis(),
+                calculateSpentTimeInMillis(start),
                 Thread.currentThread());
         return ResponseEntity
                 .ok(oldFashion);
     }
 
-    private Transfer mockTransfer() {
-        return new Transfer("10", "11", "12", "Laptop");
-    }
-
-
     @GetMapping("/concurrent")
     ResponseEntity<String> concurrent() {
         var correlationId = MDC.get(MDCInterceptor.CORRELATION_ID_KEY);
-        log.info("{} - Starting the parallel processing", correlationId);
-        Instant start = Instant.now();
+        log.info("{} - Starting the concurrent processing", correlationId);
+        var start = Instant.now();
         String concurrent = transferService.newTransferConcurrent(mockTransfer());
-        log.info("{}  - End of execution. Took {} milliseconds, using {}",
+        log.info("{}  - End of concurrent execution. Took {} milliseconds, using {}",
                 correlationId,
-                Duration.between(start, Instant.now()).toMillis(),
+                calculateSpentTimeInMillis(start),
                 Thread.currentThread());
         return ResponseEntity.ok(concurrent);
     }
 
     @GetMapping("/parallel")
     public ResponseEntity<String> parallel() throws ExecutionException, InterruptedException {
-        Transfer transfer = mockTransfer();
+        var transfer = mockTransfer();
         var correlationId = MDC.get("CorrelationId");
-        log.info("Starting the parallel processing of {}", correlationId);
-        long start = System.nanoTime();
+        var start = Instant.now();
+
+        log.info("{} - Starting the parallel processing", correlationId);
         CompletableFuture<ResponseEntity<String>> riskAsync = transferService.getRiskTransactionAsync(transfer);
         CompletableFuture<ResponseEntity<Void>> transferAsync = transferService.makeTransferAsync(transfer);
         CompletableFuture.allOf(riskAsync, transferAsync).join();
-        long end = System.nanoTime();
-        log.info("End of execution of {} took {} seconds, using {}",
+
+        log.info("{}  - End of parallel execution. Took {} milliseconds, using {}",
                 correlationId,
-                ((end - start) / 1.0E9),
+                calculateSpentTimeInMillis(start),
                 Thread.currentThread());
         return ResponseEntity.ok(riskAsync.get().getBody() + transferAsync.get());
+    }
+
+    private static long calculateSpentTimeInMillis(Instant start) {
+        return Duration.between(start, Instant.now()).toMillis();
+    }
+
+    private Transfer mockTransfer() {
+        return new Transfer("10", "11", "12", "Laptop");
     }
 }
