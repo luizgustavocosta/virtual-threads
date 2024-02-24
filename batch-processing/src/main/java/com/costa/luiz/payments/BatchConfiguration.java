@@ -1,9 +1,5 @@
 package com.costa.luiz.payments;
 
-import com.costa.luiz.payments.JobCompletionNotificationListener;
-import com.costa.luiz.payments.MultiResourceReaderThreadSafe;
-import com.costa.luiz.payments.Payment;
-import com.costa.luiz.payments.PaymentItemProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -19,14 +15,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
-import org.springframework.core.task.VirtualThreadTaskExecutor;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
 public class BatchConfiguration {
-
 
     @Value("${payment.files.location}")
     private Resource[] files;
@@ -86,14 +82,22 @@ public class BatchConfiguration {
     @Bean
     public Step paymentStep(JobRepository jobRepository,
                             PlatformTransactionManager transactionManager,
-                            PaymentItemProcessor processor
-            , JdbcBatchItemWriter<Payment> writer) {
+                            PaymentItemProcessor processor,
+                            JdbcBatchItemWriter<Payment> writer) {
         return new StepBuilder("paymentStep", jobRepository)
-                .<Payment, Payment>chunk(100, transactionManager)
+                .<Payment, Payment>chunk(0, transactionManager)
                 .reader(multiResourceReaderThreadSafe())
                 .processor(processor)
                 .writer(writer)
-                .taskExecutor(new VirtualThreadTaskExecutor("VirtualThread-"))
+//                .taskExecutor(new VirtualThreadTaskExecutor("VirtualThread-"))
+//                .taskExecutor(taskExecutor())
                 .build();
+    }
+
+    @Bean
+    public TaskExecutor taskExecutor() {
+        SimpleAsyncTaskExecutor asyncTaskExecutor = new SimpleAsyncTaskExecutor("spring_batch");
+        asyncTaskExecutor.setConcurrencyLimit(5);
+        return asyncTaskExecutor;
     }
 }
