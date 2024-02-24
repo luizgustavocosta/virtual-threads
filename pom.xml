@@ -9,5 +9,6 @@
         <module>risk-service</module>
         <module>transfer-service</module>
         <module>batch-processing</module>
+        <module>standalone</module>
     </modules>
 </project>
