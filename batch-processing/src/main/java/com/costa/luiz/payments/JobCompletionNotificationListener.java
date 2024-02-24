@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;
+import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -32,12 +33,19 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
             log.info("Job {} finished at {} took {}", jobExecution.getJobId(), jobExecution.getEndTime(),
                     Duration.between(jobExecution.getCreateTime(), jobExecution.getEndTime()));
 
-//            jdbcTemplate
-//                    .query("SELECT * FROM payments", new DataClassRowMapper<>(Payment.class))
-//                    .forEach(payments -> log.info("Found <{{}}> in the database.", payments));
+            var countPayments = jdbcTemplate
+                    .queryForObject("SELECT count(*) FROM payments", Integer.class);
+            var countPaymentsSkipped = jdbcTemplate
+                    .queryForObject("SELECT count(*) FROM payments WHERE status = 'SKIP'", Integer.class);
+            var countPaymentsOk = jdbcTemplate
+                    .queryForObject("SELECT count(*) FROM payments WHERE status = 'OK'", Integer.class);
+
+            log.info("Were processed {} payments. {} OK and {} SKIP ", countPayments, countPaymentsOk,
+                    countPaymentsSkipped);
+
+            jdbcTemplate
+                    .query("SELECT * FROM payments", new DataClassRowMapper<>(Payment.class))
+                    .forEach(payments -> log.debug("Found <{{}}> in the database.", payments));
         }
     }
 }
-
-//Job 1 finished at 2024-02-23T23:26:32.697781
-//Job 1 started at 2024-02-23T23:26:32.697781

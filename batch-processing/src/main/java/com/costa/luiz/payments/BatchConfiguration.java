@@ -96,7 +96,7 @@ public class BatchConfiguration {
 
     @Bean
     public TaskExecutor taskExecutor() {
-        SimpleAsyncTaskExecutor asyncTaskExecutor = new SimpleAsyncTaskExecutor("spring_batch");
+        SimpleAsyncTaskExecutor asyncTaskExecutor = new SimpleAsyncTaskExecutor("Task_Executor");
         asyncTaskExecutor.setConcurrencyLimit(5);
         return asyncTaskExecutor;
     }

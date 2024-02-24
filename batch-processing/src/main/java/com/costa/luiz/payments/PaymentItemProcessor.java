@@ -14,15 +14,21 @@ public class PaymentItemProcessor implements ItemProcessor<Payment, Payment> {
     @Value("${payment.fee:2.2}")
     private float fee;
 
+    @Value("${payment.threshold:10}")
+    private float paymentThreshold;
+
     @Override
     public Payment process(final Payment payment) {
         var account = payment.account();
         var amount = payment.amount();
 
-        var transformedPayment = new Payment(account, amount.multiply(BigDecimal.valueOf(fee)), "OK");
-
+        BigDecimal calculatedFee = amount.multiply(BigDecimal.valueOf(fee));
+        var status = "OK";
+        if (calculatedFee.intValue() < paymentThreshold) {
+            status = "SKIP";
+        }
+        var transformedPayment = new Payment(account, calculatedFee, status);
         log.debug("Converting ({}) into ({})", payment, transformedPayment);
-
         return transformedPayment;
     }
 
