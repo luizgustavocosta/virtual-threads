@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: virtual-threads
+  threads:
+    virtual:
+      enabled: 'true'
+server:
+  tomcat:
+    threads:
+      max: '10'
+springdoc:
+  api-docs:
+    path: /api-docs
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+risk:
+  service:
+    url: http://localhost:8081/v1/risks
+transfer:
+  service:
+    url: http://localhost:8082/v1/transfers

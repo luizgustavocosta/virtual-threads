@@ -21,7 +21,7 @@ public class RiskServiceApplication {
 }
 
 @RestController
-@RequestMapping("/v1/risk/transaction")
+@RequestMapping("/v1/risks/transaction")
 class RiskTransactionController {
 
     private static final Logger log = LoggerFactory.getLogger(RiskTransactionController.class);
@@ -31,6 +31,6 @@ class RiskTransactionController {
                             @PathVariable String device) throws InterruptedException {
         log.info("Starting the transaction check for account {} using the device {}", accountId, device);
         TimeUnit.SECONDS.sleep(3);
-        return "The risk is very low";
+        return "LOW";
     }
 }

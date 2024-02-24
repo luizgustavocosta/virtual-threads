@@ -1,8 +1,7 @@
-package com.costa.luiz.bankservice;
+package com.costa.luiz.bank.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.task.VirtualThreadTaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -10,15 +9,15 @@ import java.util.concurrent.Executor;
 
 @Configuration
 @EnableAsync
-public class AsyncConfiguration {
+class AsyncConfiguration {
 
-    @Bean(name = "asyncExecutor")
+    @Bean(name = "customAsyncExecutor")
     public Executor asyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(50);
+        executor.setCorePoolSize(8);
         executor.setMaxPoolSize(50);
         executor.setQueueCapacity(100);
-        executor.setThreadNamePrefix("AsyncThread-");
+        executor.setThreadNamePrefix("PlatformThread-");
         executor.initialize();
         return executor;
     }
