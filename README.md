@@ -1,11 +1,11 @@
 # Project title
-Virtual Threads
+Getting started using Virtual Threads
 
 ## Motivation
-Use Java 21 and Virtual Threads
+Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalone apps
 
 ## Build status
-TBD
+https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml/badge.svg
 
 ## Quality Gate
 TBD
@@ -23,7 +23,7 @@ TBD
 ```
 
 ## Run locally
- - Download the project through the GitHub using
+- Download the project through the GitHub using
  ```git
  TBD
  ```
