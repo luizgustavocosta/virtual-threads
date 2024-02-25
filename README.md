@@ -34,7 +34,7 @@ Ignored
 
 ## Languages and Tools:
 <div>
-  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/4/41/Duke_Wave.png">&nbsp;
+  <img width=50px src="resources/imgs/java-vertical.svg">&nbsp;
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
   <img width=50px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png">&nbsp;
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/e/ef/K6-logo.svg">&nbsp;
@@ -52,9 +52,12 @@ Ignored
 ![img.png](resources/imgs/payments-processor.png)
 
 ## References
+- [JEP-444](https://openjdk.org/jeps/444)
 - [Spring Blog](https://spring.io/blog/2023/09/20/hello-java-21)
 - [YouTube - Java 21 new feature: Virtual Threads](https://www.youtube.com/watch?v=5E0LU85EnTI)
 - [YouTube - Devoxx Belgium - Venkat Subramaniam](https://www.youtube.com/watch?v=1zSF1259s6w)
 - [AirHacks Podcast](https://airhacks.fm/#episode_280)
 - [YouTube - Spring Batch](https://www.youtube.com/watch?v=vLw39E-pIiA)
+- [Embracing Virtual Threads](https://spring.io/blog/2022/10/11/embracing-virtual-threads)
+- [YouTube - Dan Vega](https://www.youtube.com/watch?v=THavIYnlwck)
 
