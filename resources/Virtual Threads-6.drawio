@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" modified="2024-02-25T20:30:32.231Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2.1 Safari/605.1.15" etag="IFlOcMfcPh8wN8OjGyEm" version="23.1.6" type="device">
+  <diagram name="Architecture" id="cZkWRRkF8DNomMUPQQeo">
+    <mxGraphModel dx="819" dy="507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-0" />
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-1" parent="InuPAqlCRP4GGSwjiaCo-0" />
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-7" value="&lt;b&gt;&amp;lt;&amp;lt;microservice&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;&amp;lt;&amp;lt;Spring Boot&amp;gt;&amp;gt;&lt;br&gt;bank-service :8080" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#EBEBEB;shape=mxgraph.archimate3.application;appType=serv;archiType=rounded" vertex="1" parent="InuPAqlCRP4GGSwjiaCo-1">
+          <mxGeometry x="180" y="400" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-8" value="&lt;b&gt;&amp;lt;&amp;lt;microservice&amp;gt;&amp;gt;&lt;br&gt;&lt;/b&gt;&amp;lt;&amp;lt;Spring Boot&amp;gt;&amp;gt;&lt;br&gt;risk-service :8081" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#EBEBEB;shape=mxgraph.archimate3.application;appType=serv;archiType=rounded" vertex="1" parent="InuPAqlCRP4GGSwjiaCo-1">
+          <mxGeometry x="450" y="400" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-9" value="&lt;b&gt;&amp;lt;&amp;lt;microservice&amp;gt;&amp;gt;&lt;br&gt;&lt;/b&gt;&amp;lt;&amp;lt;Spring Boot&amp;gt;&amp;gt;&lt;br&gt;transfer-service :8082" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#EBEBEB;shape=mxgraph.archimate3.application;appType=serv;archiType=rounded" vertex="1" parent="InuPAqlCRP4GGSwjiaCo-1">
+          <mxGeometry x="450" y="520" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-10" value="se" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=open;elbow=vertical;endFill=1;rounded=0;" edge="1" parent="InuPAqlCRP4GGSwjiaCo-1" source="InuPAqlCRP4GGSwjiaCo-8" target="InuPAqlCRP4GGSwjiaCo-7">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="290" y="350" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-11" value="serving" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="InuPAqlCRP4GGSwjiaCo-10">
+          <mxGeometry x="-0.2466" y="-1" relative="1" as="geometry">
+            <mxPoint x="-14" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-12" value="" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=open;elbow=vertical;endFill=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="InuPAqlCRP4GGSwjiaCo-1" source="InuPAqlCRP4GGSwjiaCo-9" target="InuPAqlCRP4GGSwjiaCo-7">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="440" y="560" as="sourcePoint" />
+            <mxPoint x="450" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="350" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-13" value="serving" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="InuPAqlCRP4GGSwjiaCo-12">
+          <mxGeometry x="-0.5988" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-14" value="&lt;b&gt;&amp;lt;&amp;lt;H2&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;Payments Data" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#EBEBEB;shape=mxgraph.archimate3.passive;" vertex="1" parent="InuPAqlCRP4GGSwjiaCo-1">
+          <mxGeometry x="450" y="645" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-15" value="&lt;b&gt;&amp;lt;&amp;lt;batch&amp;gt;&amp;gt;&lt;br&gt;&lt;/b&gt;&amp;lt;&amp;lt;Spring Batch&amp;gt;&amp;gt;&lt;br&gt;batch-processing :8084" style="html=1;outlineConnect=0;whiteSpace=wrap;fillColor=#EBEBEB;shape=mxgraph.archimate3.application;appType=serv;archiType=rounded" vertex="1" parent="InuPAqlCRP4GGSwjiaCo-1">
+          <mxGeometry x="190" y="640" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-16" value="" style="edgeStyle=elbowEdgeStyle;html=1;endArrow=open;elbow=vertical;endFill=0;dashed=1;dashPattern=1 4;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="InuPAqlCRP4GGSwjiaCo-1" source="InuPAqlCRP4GGSwjiaCo-15" target="InuPAqlCRP4GGSwjiaCo-14">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="500" y="610" as="sourcePoint" />
+            <mxPoint x="340" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="InuPAqlCRP4GGSwjiaCo-17" value="read/write" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="InuPAqlCRP4GGSwjiaCo-16">
+          <mxGeometry x="-0.2669" y="-1" relative="1" as="geometry">
+            <mxPoint x="9" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

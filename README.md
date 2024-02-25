@@ -2,7 +2,7 @@
 Getting started using Virtual Threads
 
 ## Motivation
-Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalone apps
+Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalone apps.
 
 ## Build status
 [![Virtual Threads](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml/badge.svg?event=branch_protection_rule)](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml)
@@ -12,7 +12,7 @@ Ignored
 
 ## Features
 - Transfer money
-- Payments processor
+- Payment processor
 
 ## Run locally
 - Download the project through the GitHub using
@@ -48,13 +48,13 @@ Ignored
 ### Transfer money
 ![img.png](resources/imgs/bank-transfer.png)
 
-### Payments processor
+### Payment processor
 ![img.png](resources/imgs/payments-processor.png)
 
 ## References
-* TBD
-
-
-k6 run --out json=test.json hellok6.js
-k6 run --out=cloud hellok6.js
+- [Spring Blog](https://spring.io/blog/2023/09/20/hello-java-21)
+- [YouTube - Java 21 new feature: Virtual Threads](https://www.youtube.com/watch?v=5E0LU85EnTI)
+- [YouTube - Devoxx Belgium - Venkat Subramaniam](https://www.youtube.com/watch?v=1zSF1259s6w)
+- [AirHacks Podcast](https://airhacks.fm/#episode_280)
+- [YouTube - Spring Batch](https://www.youtube.com/watch?v=vLw39E-pIiA)
 

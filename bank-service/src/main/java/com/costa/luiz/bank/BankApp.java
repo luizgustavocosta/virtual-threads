@@ -13,5 +13,12 @@ public class BankApp {
     }
 
 
+    void x() {
+        var shakespeare = """
+            ABAFDSFDSa
+            FDSFSDA
+            """;
+        System.out.println(shakespeare);
+    }
 }
 
