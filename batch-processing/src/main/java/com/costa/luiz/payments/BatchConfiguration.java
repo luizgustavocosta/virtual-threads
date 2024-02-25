@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.core.task.VirtualThreadTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
@@ -89,7 +90,7 @@ public class BatchConfiguration {
                 .reader(multiResourceReaderThreadSafe())
                 .processor(processor)
                 .writer(writer)
-//                .taskExecutor(new VirtualThreadTaskExecutor("VirtualThread-"))
+                .taskExecutor(new VirtualThreadTaskExecutor("VirtualThread-"))
 //                .taskExecutor(taskExecutor())
                 .build();
     }

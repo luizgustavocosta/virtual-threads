@@ -1,15 +1,20 @@
-https://docs.wise.com/api-docs/api-reference/transfer
+# Project title
+Transfer Service
 
-- Package the desired project and run. If you're using an IDE, you don't need the package phase.
-- Example
-    - To run the microservices 1, 5, and 7 perform the script below for each one to package and run the service.
-``` shell
-cd transfer-service
+## Motivation
+Serve as Transfer API to Money Transfer API
+
+## Features
+- Transfer the money
+
+## Run locally
+ ```shell
+git clone https://github.com/luizgustavocosta/virtual-threads.git
+cd virtual-threads/transfer-service
 mvn package
 java -jar target/transfer-service-0.0.1-SNAPSHOT.jar
-```
+ ```
 
-You should see the log
 ```text
 luizcosta@MacBook-Pro-de-Luiz transfer-service % java -jar target/transfer-service-0.0.1-SNAPSHOT.jar
 
@@ -32,3 +37,30 @@ luizcosta@MacBook-Pro-de-Luiz transfer-service % java -jar target/transfer-servi
 2024-02-25T16:22:34.689-03:00  INFO 2812 --- [transfer-service] [           main] c.c.l.t.TransferServiceApplication       : Started TransferServiceApplication in 2.578 seconds (process running for 3.128)
 ```
 
+## Languages and Tools:
+<div>
+  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/4/41/Duke_Wave.png">&nbsp;
+  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
+  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg">&nbsp;
+  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
+</div>
+</br>
+
+## Architecture:
+
+### Money transfer
+![img.png](../resources/imgs/bank-transfer.png)
+
+## API
+This API has a POST endpoint that responds after 1 second, in order to simulate a I/O operation
+
+### Examples of usage
+
+#### Transfer
+````shell
+curl -X 'POST' \
+   'http://localhost:8082/v1/transfers/1234-5678/9012-3456/100.01'
+````
+
+### References
+[Wise - API Transfer](https://docs.wise.com/api-docs/api-reference/transfer)

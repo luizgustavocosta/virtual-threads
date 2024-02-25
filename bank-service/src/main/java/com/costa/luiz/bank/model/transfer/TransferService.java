@@ -94,7 +94,7 @@ public class TransferService {
             return bankFlow.get().getBody();
         } catch (ExecutionException | InterruptedException exception) {
             Thread.currentThread().interrupt();
-            return "The following error happened "+exception.getCause();
+            return "The following error happened " + exception.getCause();
         }
     }
 
@@ -122,7 +122,7 @@ public class TransferService {
 
     public String newTransferConcurrent(Transfer newTransfer) {
         log.info("Current thread {}", Thread.currentThread());
-//        try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
+        // try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) { to use Virtual Threads
         try (ExecutorService executorService = Executors.newSingleThreadExecutor()) {
             Future<ResponseEntity<String>> risk = executorService.submit(() -> getRiskTransaction(newTransfer));
             Future<ResponseEntity<Void>> transfer = executorService.submit(() -> makeTransfer(newTransfer));
@@ -132,7 +132,10 @@ public class TransferService {
             return "Money transferred";
         } catch (ExecutionException | InterruptedException exception) {
             Thread.currentThread().interrupt();
-            return "The following error happened "+exception.getCause();
+            return """
+                    The following error $error happened
+                    Please, try again.
+                    """.replace("$error", exception.getMessage());
         }
     }
 }

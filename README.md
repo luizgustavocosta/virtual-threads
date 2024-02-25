@@ -11,7 +11,7 @@ Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalo
 Ignored
 
 ## Features
-- Transfer money
+- Money transfer 
 - Payment processor
 
 ## Run locally
@@ -45,7 +45,7 @@ Ignored
 
 ## Architecture:
 
-### Transfer money
+### Money transfer
 ![img.png](resources/imgs/bank-transfer.png)
 
 ### Payment processor

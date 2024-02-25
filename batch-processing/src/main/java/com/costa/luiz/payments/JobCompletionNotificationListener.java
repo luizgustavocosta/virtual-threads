@@ -40,8 +40,8 @@ public class JobCompletionNotificationListener implements JobExecutionListener {
             var countPaymentsOk = jdbcTemplate
                     .queryForObject("SELECT count(*) FROM payments WHERE status = 'OK'", Integer.class);
 
-            log.info("Were processed {} payments. {} OK and {} SKIP ", countPayments, countPaymentsOk,
-                    countPaymentsSkipped);
+            log.info("Were processed {} payments. {} OK and {} SKIP to next processing window ",
+                    countPayments, countPaymentsOk, countPaymentsSkipped);
 
             jdbcTemplate
                     .query("SELECT * FROM payments", new DataClassRowMapper<>(Payment.class))
