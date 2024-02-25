@@ -11,8 +11,8 @@
     <groupId>com.costa.luiz</groupId>
     <artifactId>transfer-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>slow-service</name>
-    <description>slow-service</description>
+    <name>transfer-service</name>
+    <description>transfer-service</description>
     <properties>
         <java.version>17</java.version>
     </properties>

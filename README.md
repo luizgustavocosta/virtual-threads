@@ -11,12 +11,8 @@ Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalo
 Ignored
 
 ## Features
-TBD
-
-## Code Example
-```java
-@Interface
-```
+- Transfer money
+- Payments processor
 
 ## Run locally
 - Download the project through the GitHub using
@@ -39,16 +35,21 @@ TBD
 ## Languages and Tools:
 <div>
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/4/41/Duke_Wave.png">&nbsp;
-  <img width=50px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/visual-studio-code/visual-studio-code.png">&nbsp;&nbsp;&nbsp;
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
-  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/e/ef/K6-logo.svg">&nbsp;
   <img width=50px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png">&nbsp;
+  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/e/ef/K6-logo.svg">&nbsp;
   <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg">&nbsp;
   <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
 </div>
-
 </br>
 
+## Architecture:
+
+### Transfer money
+![img.png](resources/imgs/bank-transfer.png)
+
+### Payments processor
+![img.png](resources/imgs/payments-processor.png)
 
 ## References
 * TBD

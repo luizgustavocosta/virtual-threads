@@ -3,14 +3,14 @@ package com.costa.luiz.standalone;
 import java.time.Duration;
 
 @SuppressWarnings("java:S106")
-public class LightWeightThreads {
+public class PlatformThreads {
 
     public static void main(String[] args) throws InterruptedException {
-        int numberOfThreads = 100_000;
+        int numberOfThreads = 10_000;
         for (int idx = 0; idx < numberOfThreads; idx++) {
-            Thread.startVirtualThread(LightWeightThreads::doSomeIOWork);
+            new Thread(PlatformThreads::doSomeIOWork).start();
         }
-        Thread.sleep(Duration.ofSeconds(10));
+        Thread.sleep(Duration.ofSeconds(5));
         System.out.println("Done");
     }
 

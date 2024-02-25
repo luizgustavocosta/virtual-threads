@@ -1,0 +1,6 @@
+server:
+  port: 8084
+
+payment:
+  files:
+    location: "/partners/*.csv"
