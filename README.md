@@ -1,18 +1,23 @@
 # Project title
 Getting started using Virtual Threads
+<hr>
 
 ## Motivation
 Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalone apps.
+<hr>
 
 ## Build status
 [![Virtual Threads](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml/badge.svg?event=branch_protection_rule)](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml)
+<hr>
 
 ## Quality Gate
 Ignored
+<hr>
 
 ## Features
 - Money transfer 
 - Payment processor
+<hr>
 
 ## Run locally
 - Download the project through the GitHub using
@@ -20,6 +25,8 @@ Ignored
  git clone https://github.com/luizgustavocosta/virtual-threads.git
  cd virtual-threads 
  ```
+
+### Command line
 - Navigating through the projects
 
 | # | Name             | Type                           | Depends on items | How to run                         |
@@ -32,6 +39,14 @@ Ignored
 | 6 | standalone       | Program                        | -                | [Here](standalone/README.md)       |
 | 7 | transfer-service | Microservice                   | -                | [Here](transfer-service/README.md) |
 
+### Docker compose
+- Only for microservices
+- Build the image described in each microservice README.md file and then
+```shell
+docker-compose -f docker-compose.yaml -p virtual-threads up
+```
+<hr>
+
 ## Languages and Tools:
 <div>
   <img width=50px src="resources/imgs/java-vertical.svg">&nbsp;
@@ -40,8 +55,11 @@ Ignored
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/e/ef/K6-logo.svg">&nbsp;
   <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg">&nbsp;
   <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
+  <img width=150px src="resources/imgs/archimate.png">&nbsp;
+  <img width=180px src="resources/imgs/docker-logo-blue.svg">&nbsp;
 </div>
 </br>
+<hr>
 
 ## Architecture:
 
@@ -60,4 +78,4 @@ Ignored
 - [YouTube - Spring Batch](https://www.youtube.com/watch?v=vLw39E-pIiA)
 - [Embracing Virtual Threads](https://spring.io/blog/2022/10/11/embracing-virtual-threads)
 - [YouTube - Dan Vega](https://www.youtube.com/watch?v=THavIYnlwck)
-
+- [YouTube - TheDevConf - Eder Moraes](https://www.youtube.com/watch?v=vXnuCKKRtSQ)

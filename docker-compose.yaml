@@ -1,0 +1,24 @@
+services:
+  bank:
+    image: 'virtual-threads/bank-service'
+    ports:
+      - 8080:8080
+    networks:
+      - virtual-threads
+    depends_on:
+      - transfer
+      - risk
+  transfer:
+    image: 'virtual-threads/transfer-service'
+    ports:
+      - 8082:8082
+    networks:
+      - virtual-threads
+  risk:
+    image: 'virtual-threads/risk-service'
+    ports:
+      - 8081:8081
+    networks:
+      - virtual-threads
+networks:
+  virtual-threads:

@@ -11,11 +11,20 @@ Ignored
 - Evaluate the transaction risk
 
 ## Run locally
+### Docker
+````shell
+git clone https://github.com/luizgustavocosta/virtual-threads.git
+cd virtual-threads/risk-service
+mvn package
+docker build -t virtual-threads/risk-service .
+docker run -p 8081:8081 virtual-threads/risk-service
+````
+### Command line
  ```shell
- git clone https://github.com/luizgustavocosta/virtual-threads.git
- cd virtual-threads/risk-service
- mvn package 
- java -jar target/risk-service-0.0.1-SNAPSHOT.jar
+git clone https://github.com/luizgustavocosta/virtual-threads.git
+cd virtual-threads/risk-service
+mvn package 
+java -jar target/risk-service-0.0.1-SNAPSHOT.jar
  ```
 
 ```text
@@ -42,10 +51,12 @@ luizcosta@MacBook-Pro-de-Luiz risk-service % java -jar target/risk-service-0.0.1
 
 ## Languages and Tools:
 <div>
-  <img width=50px src="resources/imgs/java-vertical.svg">&nbsp;
+  <img width=50px src="../resources/imgs/java-vertical.svg">&nbsp;
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
   <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg">&nbsp;
   <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
+  <img width=150px src="../resources/imgs/archimate.png">&nbsp;
+  <img width=180px src="../resources/imgs/docker-logo-blue.svg">&nbsp;
 </div>
 </br>
 
