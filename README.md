@@ -29,15 +29,15 @@ Ignored
 ### Command line
 - Navigating through the projects
 
-| # | Name             | Type                           | Depends on items | How to run                         |
-|---|------------------|--------------------------------|------------------|------------------------------------|
-| 1 | bank-service     | Microservice                   | 5,7              | [Here](bank-service/README.md)     |
-| 2 | batch-processing | Batch                          | -                | [Here](bank-service/README.md)     |
-| 3 | k6               | Test                           | 1                | [Here](bank-service/README.md)     |
-| 4 | resources        | Static files for documentation | -                | [Here](bank-service/README.md)     |
-| 5 | risk-service     | Microservice                   | -                | [Here](bank-service/README.md)     |
-| 6 | standalone       | Program                        | -                | [Here](standalone/README.md)       |
-| 7 | transfer-service | Microservice                   | -                | [Here](transfer-service/README.md) |
+| # | Name             | Type                           | Depends on items | How to run                          |
+|---|------------------|--------------------------------|------------------|-------------------------------------|
+| 1 | bank-service     | Microservice                   | 5,7              | [Here](bank-service/README.md)      |
+| 2 | batch-processing | Batch                          | -                | [Here](bathch-processing/README.md) |
+| 3 | k6               | Test                           | 1                | [Here](k6/README.md)                |
+| 4 | resources        | Static files for documentation | -                | N/A                                 |
+| 5 | risk-service     | Microservice                   | -                | [Here](risk-service/README.md)      |
+| 6 | standalone       | Program                        | -                | [Here](standalone/README.md)        |
+| 7 | transfer-service | Microservice                   | -                | [Here](transfer-service/README.md)  |
 
 ### Docker compose
 - Only for microservices

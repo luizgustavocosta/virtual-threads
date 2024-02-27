@@ -22,15 +22,11 @@ mvn compile exec:java -Dexec.mainClass="com.costa.luiz.standalone.PlatformThread
 
 ## Languages and Tools:
 <div>
-  <img width=50px src="resources/imgs/java-vertical.svg">&nbsp;
+  <img width=50px src="../resources/imgs/java-vertical.svg">&nbsp;
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp
+  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
 </div>
 </br>
-
-## Architecture:
-
-### Payment processor
-![img.png](../resources/imgs/payments-processor.png)
 
 ### References
 - [YouTube - Spring Batch](https://www.youtube.com/watch?v=vLw39E-pIiA)
