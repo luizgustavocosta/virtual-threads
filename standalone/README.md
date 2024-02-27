@@ -17,6 +17,8 @@ mvn compile exec:java -Dexec.mainClass="com.costa.luiz.standalone.VirtualThreads
 
 ### Platform Threads
  ```shell
+git clone https://github.com/luizgustavocosta/virtual-threads.git
+cd virtual-threads/standalone
 mvn compile exec:java -Dexec.mainClass="com.costa.luiz.standalone.PlatformThreads"
  ```
 

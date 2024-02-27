@@ -1,11 +1,3 @@
-
-
-
-### Cloud
-```shell
-k6 run --out=cloud load_test.js
-```
-
 # Project title
 Performance test application
 
