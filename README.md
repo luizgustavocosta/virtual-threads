@@ -7,7 +7,7 @@ Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
 <hr>
 
 ## Build status
-[![Virtual Threads](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml/badge.svg?event=branch_protection_rule)](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml)
+[![Virtual Threads](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/luizgustavocosta/virtual-threads/actions/workflows/maven.yml)
 <hr>
 
 ## Quality Gate
