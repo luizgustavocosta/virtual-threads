@@ -3,7 +3,7 @@ Getting started using Virtual Threads
 <hr>
 
 ## Motivation
-Understand the use of Java 21 and Virtual Threads on Rest, Batching and standalone apps.
+Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
 <hr>
 
 ## Build status
@@ -15,12 +15,12 @@ Ignored
 <hr>
 
 ## Features
-- Money transfer 
-- Payment processor
+- Money Transfer 
+- Payment Processor
 <hr>
 
 ## Run locally
-- Download the project through the GitHub using
+- Download the project through GitHub using
  ```shell
  git clone https://github.com/luizgustavocosta/virtual-threads.git
  cd virtual-threads 
@@ -63,21 +63,21 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 
 ## Architecture:
 
-### Money transfer
+### Money Transfer
 ![img.png](resources/imgs/bank-transfer.png)
 
-### Payment processor
+### Payment Processor
 ![img.png](resources/imgs/payments-processor.png)
 
 
 ## Virtual Threads usage scenarios
 ### Increase the processing request capacity - Microservices
 
-50 users ie, 50 request and the server has capacity to handle 10.
+50 users, i.e., 50 requests and the server can handle 10.
 
-With Virtual Threads, all requests will be handled on arrival and will increase the server responsiveness.
+With Virtual Threads, all requests will be handled on arrival, increasing the server responsiveness.
 
-Below you can find the same test for 2 scenarios and using 2 differents tools, k6 and Apache Benchmarking (learned from Dan Vega YouTube video)
+Below you can find the same test for 2 scenarios using 2 different tools, k6 and Apache Benchmarking (learned from Dan Vega's YouTube video)
 
 - Open the file [application.yaml](bank-service/src/main/resources/application.yaml) and make the following changes 
   - Set the number of Tomcat threads be `10`. The default value is `200`
@@ -96,7 +96,7 @@ spring:
 - k6
 
 ##### Platform Thread
-Remember to set the property `spring.threads.virtual.enabled` to `false` and start the services bank, risk and transfer.
+Remember to set the property `spring.threads.virtual.enabled` to `false` and start the services bank, risk, and transfer.
 
 ````text
 luizcosta@MacBook-Pro-de-Luiz k6 % k6 run --out json=test.json load_test.js
@@ -186,8 +186,8 @@ INFO[0033] [k6-reporter v2.3.0] Generating HTML summary report  source=console
      vus_max........................: 50      min=50      max=50%                                                                                        luizcosta@MacBook-Pro-de-Luiz k6 % 
 
 ````
-Comparing the 2 logs we can see clearly how the Virtual Threads address the concurrent situation 4,5x faster.
-Keep in mind, just applying one configuration
+Comparing the 2 logs, we can see clearly how the Virtual Threads address the concurrent situation 4,5x faster.
+Keep in mind, that just applying one configuration
 
 | # | Configuration    | Requests |Concurrent | Server Threads | Time taken for tests in seconds |
 |---|------------------|----------|-----------|----------------|---------------------------------|
@@ -199,7 +199,7 @@ Keep in mind, just applying one configuration
 
 Same recommendations of k6 steps
 
-The command bellow is to call the endpoint `http://localhost:8080/v1/transfers` 400 times using 50 concurrent requests and wait 30 seconds for timeout
+The command below is to call the endpoint `http://localhost:8080/v1/transfers` 400 times using 50 concurrent requests and wait 30 seconds for timeout
  
 ````shell
 ab -n 400 -c 50 -s 30 -p 'resources/payload/transfer.json' -T 'application/json' http://localhost:8080/v1/transfers
@@ -320,8 +320,8 @@ Percentage of the requests served within a certain time (ms)
  100%   4233 (longest request)
 luizcosta@MacBook-Pro-de-Luiz virtual-threads 
 ```
-Comparing the 2 logs we can see clearly how the Virtual Threads address the concurrent situation 4,5x faster.
-Keep in mind, just applying one configuration
+Comparing the 2 logs, we can see clearly how the Virtual Threads address the concurrent situation 4,5x faster.
+Keep in mind, that just applying one configuration
 
 | # | Configuration    | Requests |Concurrent | Server Threads | Time taken for tests in seconds |
 |---|------------------|----------|-----------|----------------|---------------------------------|
@@ -330,7 +330,7 @@ Keep in mind, just applying one configuration
 
 
 ### Increase the processing capacity - Batching
-Inside the **Step** call the **taskExecutor** and send as parameter the code below. Voilà, Virtual Threads in Action for Spring Batch
+Inside the **Step**, call the **taskExecutor** and send as a parameter the code below. Voilà, Virtual Threads in Action for Spring Batch
 ```java
 .taskExecutor(new VirtualThreadTaskExecutor("VirtualThread-"))
 ```
