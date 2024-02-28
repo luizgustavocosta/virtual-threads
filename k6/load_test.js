@@ -7,7 +7,7 @@ const errorRate = new Rate('errorRate');
 
 export const options = {
   vus: 50,
-  duration: '30s',
+  iterations: 400
 };
 
 export default function () {

@@ -11,14 +11,5 @@ public class BankApp {
     public static void main(String[] args) {
         SpringApplication.run(BankApp.class, args);
     }
-
-
-    void x() {
-        var shakespeare = """
-            ABAFDSFDSa
-            FDSFSDA
-            """;
-        System.out.println(shakespeare);
-    }
 }
 
