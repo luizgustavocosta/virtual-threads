@@ -14,13 +14,30 @@ Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
 Ignored
 <hr>
 
+## What are Virtual Threads?
+[_From Oracle_](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA) - Virtual threads are lightweight threads that reduce the effort of writing, maintaining, and debugging high-throughput concurrent applications.
+
+For background information about virtual threads, see JEP 444.
+
+A thread is the smallest unit of processing that can be scheduled. It runs concurrently with—and largely independently of—other such units. It's an instance of java.lang.Thread. There are two kinds of threads, platform threads and virtual threads.
+
+<hr>
+
 ## Features
 - Money Transfer 
 - Payment Processor
 <hr>
 
 ## Run locally
-- Download the project through GitHub using
+To run these projects locally you must have the Java 21 installed. My recommendation is to use [SDKMAN!](https://sdkman.io).
+
+Example of my version, [Amazon Corretto 21.0.2](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html), installed via SKDMAN!.
+```shell
+sdk list java | grep installed
+Corretto      | >>> | 21.0.2       | amzn    | installed  | 21.0.2-amzn
+````
+
+- Download the project through GitHub using. If you don't have Git installed, please read [this tutorial first](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
  ```shell
  git clone https://github.com/luizgustavocosta/virtual-threads.git
  cd virtual-threads 
@@ -73,7 +90,7 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 ## Virtual Threads usage scenarios
 ### Increase the processing request capacity - Microservices
 
-50 users, i.e., 50 requests and the server can handle 10.
+50 users, i.e., 50 requests on [Thread-Per-Request Model](https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch04s04.html), and the server can handle 10.
 
 With Virtual Threads, all requests will be handled on arrival, increasing the server responsiveness.
 
@@ -95,7 +112,7 @@ spring:
 #### How to test
 - k6
 
-##### Platform Thread
+##### Platform Threads
 Remember to set the property `spring.threads.virtual.enabled` to `false` and start the services bank, risk, and transfer.
 
 ````text
@@ -191,7 +208,7 @@ Keep in mind, that just applying one configuration
 
 | # | Configuration    | Requests |Concurrent | Server Threads | Time taken for tests in seconds |
 |---|------------------|----------|-----------|----------------|---------------------------------|
-| 1 | Platform Thread  | 400      | 50        |              10| 181.2                           |
+| 1 | Platform Threads | 400      | 50        |              10| 181.2                           |
 | 2 | Virtual Threads  | 400      | 50        |              10| 33                              |
 
 
@@ -325,7 +342,7 @@ Keep in mind, that just applying one configuration
 
 | # | Configuration    | Requests |Concurrent | Server Threads | Time taken for tests in seconds |
 |---|------------------|----------|-----------|----------------|---------------------------------|
-| 1 | Platform Thread  | 400      | 50        |              10|                          165.570|
+| 1 | Platform Threads | 400      | 50        |              10|                          165.570|
 | 2 | Virtual Threads  | 400      | 50        |              10|                           36.677|
 
 
