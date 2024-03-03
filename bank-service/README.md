@@ -25,32 +25,19 @@ docker run -p 8080:8080 virtual-threads/bank-service
  ```shell
 git clone https://github.com/luizgustavocosta/virtual-threads.git
 cd virtual-threads/bank-service
+````
+
+#### Option 1
+
+```shell
+./mvnw spring-boot:run
+```
+
+#### Option 2
+```shell
 mvn package 
 java -jar target/bank-service-0.0.1-SNAPSHOT.jar
  ```
-
-```text
-luizcosta@MacBook-Pro-de-Luiz bank-service % java -jar target/bank-service-0.0.1-SNAPSHOT.jar
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
- :: Spring Boot ::                (v3.2.2)
-
-2024-02-25T18:20:15.315-03:00  INFO 4765 --- [virtual-threads] [           main] com.costa.luiz.bank.BankApp              : Starting BankApp v0.0.1-SNAPSHOT using Java 21.0.2 with PID 4765 (/Users/luizcosta/Downloads/temp/virtual-threads/bank-service/target/bank-service-0.0.1-SNAPSHOT.jar started by luizcosta in /Users/luizcosta/Downloads/temp/virtual-threads/bank-service)
-2024-02-25T18:20:15.318-03:00  INFO 4765 --- [virtual-threads] [           main] com.costa.luiz.bank.BankApp              : No active profile set, falling back to 1 default profile: "default"
-2024-02-25T18:20:18.273-03:00  INFO 4765 --- [virtual-threads] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-02-25T18:20:18.290-03:00  INFO 4765 --- [virtual-threads] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-02-25T18:20:18.291-03:00  INFO 4765 --- [virtual-threads] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
-2024-02-25T18:20:18.333-03:00  INFO 4765 --- [virtual-threads] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-02-25T18:20:18.334-03:00  INFO 4765 --- [virtual-threads] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2867 ms
-2024-02-25T18:20:20.097-03:00  INFO 4765 --- [virtual-threads] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
-2024-02-25T18:20:20.237-03:00  INFO 4765 --- [virtual-threads] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
-2024-02-25T18:20:20.262-03:00  INFO 4765 --- [virtual-threads] [           main] com.costa.luiz.bank.BankApp              : Started BankApp in 5.795 seconds (process running for 6.456)
-```
 
 ## Languages and Tools:
 <div>
@@ -62,6 +49,8 @@ luizcosta@MacBook-Pro-de-Luiz bank-service % java -jar target/bank-service-0.0.1
   <img width=180px src="../resources/imgs/docker-logo-blue.svg">&nbsp;
 </div>
 </br>
+
+The versions are available [here](../README.md). 
 
 ## Architecture:
 

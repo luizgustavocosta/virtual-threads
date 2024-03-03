@@ -1,13 +1,13 @@
-# Project title
+# Título do Projeto
 Getting started using Virtual Threads
 <hr>
 
-## Brazilian Portuguese Version
-[Click here](README_pt_BR.md)
+## Versão em Inglês
+[Clique aqui](README.md)
 
 <hr>
 
-## Motivation
+## Motivação
 Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
 <hr>
 
@@ -19,7 +19,7 @@ Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
 Ignored
 <hr>
 
-## What are Virtual Threads?
+## O que são Virtual Threads?
 [_From Oracle_](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA) - Virtual threads are lightweight threads that reduce the effort of writing, maintaining, and debugging high-throughput concurrent applications.
 
 For background information about virtual threads, see JEP 444.
@@ -43,7 +43,7 @@ Example of scenarios, based on Dan Vega's videos
 <hr>
 
 ## Features
-- Money Transfer 
+- Money Transfer
 - Payment Processor
 <hr>
 
@@ -136,7 +136,7 @@ When **Client A** calls the application the Thread 1 will be tied to this reques
 
 ![thread-per-request-generic-clients](resources/imgs/thread-per-request-generic-clients.png)
 
-This model is fine, until the server runs out of threads. When all the server threads are busy, the **Client X** needs to wait for the next released thread. Nobody likes it. 
+This model is fine, until the server runs out of threads. When all the server threads are busy, the **Client X** needs to wait for the next released thread. Nobody likes it.
 
 ![thread-per-request-generic-client-waiting](resources/imgs/thread-per-request-generic-client-waiting.png)
 
@@ -146,9 +146,9 @@ With Virtual Threads, all requests will be handled on arrival, increasing the se
 
 Below you can find the same test for 2 scenarios using 2 different tools, k6 and Apache Benchmarking (learned from Dan Vega's YouTube video)
 
-- Open the file [application.yaml](bank-service/src/main/resources/application.yaml) and make the following changes 
-  - Set the number of Tomcat threads to be `10`. The default value is `200`
-  - Set the property `spring.threads.virtual.enabled` to `true`
+- Open the file [application.yaml](bank-service/src/main/resources/application.yaml) and make the following changes
+    - Set the number of Tomcat threads to be `10`. The default value is `200`
+    - Set the property `spring.threads.virtual.enabled` to `true`
 ```yaml
 server:
   tomcat:
@@ -210,7 +210,7 @@ INFO[0162] [k6-reporter v2.3.0] Generating HTML summary report  source=console
 
 Remember to set the property `spring.threads.virtual.enabled` to `true` and restart the bank service.
 
-##### Virtual Threads 
+##### Virtual Threads
 ````text
 luizcosta@MacBook-Pro-de-Luiz k6 % k6 run --out json=test.json load_test.js
 
@@ -267,7 +267,7 @@ Keep in mind, that just applying one configuration
 Same recommendations of k6 steps
 
 The command below is to call the endpoint `http://localhost:8080/v1/transfers` 400 times using 50 concurrent requests and wait 30 seconds for timeout
- 
+
 ````shell
 ab -n 400 -c 50 -s 30 -p 'resources/payload/transfer.json' -T 'application/json' http://localhost:8080/v1/transfers
 ````
