@@ -29,11 +29,11 @@ A thread is the smallest unit of processing that can be scheduled. It runs concu
 <hr>
 
 ## Where can I use Virtual Threads?
-Is recommended when your system is not using the CPU, ie, for **_I/O bound_**.
+It is recommended when your system is not using the CPU, ie, for **_I/O-bound_**.
 
-**_What do I/O bound mean?_**
+**_What do I/O-bound mean?_**
 
-[From Wikipedia](https://en.wikipedia.org/wiki/I/O_bound), refers to a condition in which the time it takes to complete a computation is determined principally by the period spent waiting for input/output operations to be completed, which can be juxtaposed with being CPU bound. This circumstance arises when the rate at which data is requested is slower than the rate it is consumed or, in other words, more time is spent requesting data than processing it
+[From Wikipedia](https://en.wikipedia.org/wiki/I/O_bound), it refers to a condition in which the time it takes to complete a computation is determined principally by the period spent waiting for input/output operations to be completed, which can be juxtaposed with being CPU bound. This circumstance arises when the rate at which data is requested is slower than the rate it is consumed or, in other words, more time is spent requesting data than processing it
 
 Example of scenarios, based on Dan Vega's videos
 
@@ -47,7 +47,7 @@ Example of scenarios, based on Dan Vega's videos
 - Payment Processor
 <hr>
 
-## Run locally
+## To run these projects locally
 To run these projects locally you must have Java 21 installed. My recommendation is to use [SDKMAN!](https://sdkman.io).
 
 Example of my version, [Amazon Corretto 21.0.2](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html), installed via SKDMAN!.
@@ -63,7 +63,7 @@ Corretto      | >>> | 21.0.2       | amzn    | installed  | 21.0.2-amzn
  ```
 
 ### Command line
-- Navigating through the projects
+- To navigate through the projects
 
 | # | Name             | Type                           | Depends on items | How to run                         |
 |---|------------------|--------------------------------|------------------|------------------------------------|
@@ -77,7 +77,7 @@ Corretto      | >>> | 21.0.2       | amzn    | installed  | 21.0.2-amzn
 
 ### Docker compose
 - Only for microservices
-- Build the image described in each microservice README.md file and then
+- Build the image described in each microservice's README.md file and then
 ```shell
 docker-compose -f docker-compose.yaml -p virtual-threads up
 ```
@@ -113,10 +113,10 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 ## Architecture:
 
 ### Money Transfer
-![img.png](resources/imgs/bank-transfer.png)
+![bank_transfer.png](resources/imgs/bank-transfer.png)
 
 ### Payment Processor
-![img.png](resources/imgs/payments-processor.png)
+![payment_processor.png](resources/imgs/payments-processor.png)
 
 
 ## Virtual Threads usage scenarios
@@ -128,7 +128,7 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 
 For each client request, ie, the same client sends nth request at same time, one thread will be allocated by Tomcat Web Server to handle the request/response.
 
-The traditional thread model, one application thread is tied to the OS thread.
+In the traditional thread model, one application thread is tied to the OS thread.
 
 ![thread-per-request-generic](resources/imgs/thread-per-request-generic.png)
 
@@ -136,15 +136,15 @@ When **Client A** calls the application the Thread 1 will be tied to this reques
 
 ![thread-per-request-generic-clients](resources/imgs/thread-per-request-generic-clients.png)
 
-This model is fine, until the server runs out of threads. When all the server threads are busy, the **Client X** needs to wait for the next released thread. Nobody likes it. 
+This model is fine until the server runs out of threads. When all the server threads are busy, the **Client X** needs to wait for the next released thread. Nobody likes it.
 
 ![thread-per-request-generic-client-waiting](resources/imgs/thread-per-request-generic-client-waiting.png)
 
-With Virtual Threads, all requests will be handled on arrival, increasing the server responsiveness.
+With Virtual Threads, all requests will be handled on arrival, increasing server responsiveness.
 
 ![thread-per-request-virtual-threads](resources/imgs/thread-per-request-virtual-threads.png)
 
-Below you can find the same test for 2 scenarios using 2 different tools, k6 and Apache Benchmarking (learned from Dan Vega's YouTube video)
+Below you can find the same test for two scenarios using two different tools: k6 and Apache Benchmarking (learned from Dan Vega's YouTube video).
 
 - Open the file [application.yaml](bank-service/src/main/resources/application.yaml) and make the following changes 
   - Set the number of Tomcat threads to be `10`. The default value is `200`
