@@ -61,10 +61,10 @@ luizcosta@MacBook-Pro-de-Luiz batch-processing % java -jar target/batch-processi
 ## Languages and Tools:
 <div>
   <img width=50px src="../resources/imgs/java-vertical.svg">&nbsp;
-  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
-  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg">&nbsp;
-  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
-  <img width=100px src="https://upload.wikimedia.org/wikipedia/commons/a/a1/H2_logo.png">&nbsp;
+  <img width=50px src="../resources/imgs/Intellij.png">&nbsp;
+  <img width=150px src="../resources/imgs/spring-framework.png">&nbsp;
+  <img width=150px src="../resources/imgs/maven.png">&nbsp;
+  <img width=100px src="../resources/imgs/H2_logo.png">&nbsp;
 </div>
 </br>
 

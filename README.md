@@ -86,11 +86,12 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 ## Languages and Tools:
 <div>
   <img width=50px src="resources/imgs/java-vertical.svg">&nbsp;
-  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
-  <img width=50px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png">&nbsp;
-  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/e/ef/K6-logo.svg">&nbsp;
-  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg">&nbsp;
-  <img width=150px src="https://upload.wikimedia.org/wikipedia/commons/5/52/Apache_Maven_logo.svg">&nbsp;
+  <img width=50px src="resources/imgs/Intellij.png">&nbsp;
+  <img width=50px src="resources/imgs/javascript.png">&nbsp;
+  <img width=50px src="resources/imgs/k6.png">&nbsp;
+  <img width=150px src="resources/imgs/spring-framework.png">&nbsp;
+  <img width=80px src="resources/imgs/tomcat.png">&nbsp;
+  <img width=150px src="resources/imgs/maven.png">&nbsp;
   <img width=150px src="resources/imgs/archimate.png">&nbsp;
   <img width=180px src="resources/imgs/docker-logo-blue.svg">&nbsp;
 </div>

@@ -18,8 +18,8 @@ k6 run --out json=test.json load_test.js
 
 ## Linguagens e ferramentas:
 <div>
-  <img width=50px src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png">&nbsp;
-  <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/e/ef/K6-logo.svg">&nbsp;
+  <img width=50px src="../resources/imgs/javascript.png">&nbsp;
+  <img width=50px src="../resources/imgs/k6.png">&nbsp;
 </div>
 </br>
 
