@@ -1,28 +1,25 @@
 # Título do projeto
-Risk Service
+Serviço de transferência
 
-## Motivação
-Servir como API de risco para API de transferência de dinheiro
-
-## Quality Gate
-Ignorado
+## Motivation
+Servir como API de transferência de dinheiro.
 
 ## Features
-- Avalie o risco da transação
+- Transferência de dinheiro
 
 ## Executar localmente
 ### Docker
 ````shell
 git clone https://github.com/luizgustavocosta/virtual-threads.git
-cd virtual-threads/risk-service
+cd virtual-threads/transfer-service
 mvn package
-docker build -t virtual-threads/risk-service .
-docker run -p 8081:8081 virtual-threads/risk-service
+docker build -t virtual-threads/transfer-service .
+docker run -p 8082:8082 virtual-threads/transfer-service
 ````
 ### Linha de comando
- ```shell
+```shell
 git clone https://github.com/luizgustavocosta/virtual-threads.git
-cd virtual-threads/risk-service
+cd virtual-threads/transfer-service
 ````
 
 #### Opção 1 (Recomendado)
@@ -33,8 +30,8 @@ cd virtual-threads/risk-service
 
 #### Opção 2
 ```shell
-mvn package 
-java -jar target/risk-service-0.0.1-SNAPSHOT.jar
+mvn package
+java -jar target/transfer-service-0.0.1-SNAPSHOT.jar
  ```
 
 ## Linguagens e ferramentas:
@@ -48,7 +45,7 @@ java -jar target/risk-service-0.0.1-SNAPSHOT.jar
 </div>
 </br>
 
-As versões estão disponíveis [aqui](../README_pt_BR.md).
+As versões estão disponíveis aqui  [here](../README_pt_BR.md).
 
 ## Arquitetura:
 
@@ -56,16 +53,16 @@ As versões estão disponíveis [aqui](../README_pt_BR.md).
 ![img.png](../resources/imgs/bank-transfer.png)
 
 ## API
-Esta API possui apenas um endpoint que responde após 3 segundos, para simular uma operação de I/O.
+Esta API possui um endpoint POST que responde após 1 segundo, para simular uma operação de I/O.
 
 ### Exemplos
 
-#### Avaliar o risco
+#### Transferência
 ````shell
-curl -X 'GET' \
-  'http://localhost:8081/v1/risks/transaction/1234-5678/cellphone' \
-  -H 'accept: */*'
+curl -X 'POST' \
+   'http://localhost:8082/v1/transfers/1234-5678/9012-3456/100.01'
 ````
 
 ### Referências
-[Transaction Check](https://api-docs.fraud.net/docs/public-apis/395e4a8yfue3b-transaction-check)
+[Wise - API Transfer](https://docs.wise.com/api-docs/api-reference/transfer)
+[Docker](https://spring.io/guides/topicals/spring-boot-docker)

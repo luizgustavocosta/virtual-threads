@@ -10,7 +10,7 @@ Ignorado
 ## Features
 - Transferência de dinheiro
 
-## Executando localmente
+## Executar localmente
 ### Docker
 - Este serviço depende do risk-service e transfer-service para executar. Não é necessário na para construir a imagem Docker.
 ````shell

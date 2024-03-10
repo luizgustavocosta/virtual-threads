@@ -56,7 +56,7 @@ sdk list java | grep installed
 Corretto      | >>> | 21.0.2       | amzn    | installed  | 21.0.2-amzn
 ````
 
-- Download the project through GitHub using. If you don't have Git installed, please read [this tutorial first](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Download the project through GitHub using Git. If you don't have Git installed, please read [this tutorial first](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
  ```shell
  git clone https://github.com/luizgustavocosta/virtual-threads.git
  cd virtual-threads 

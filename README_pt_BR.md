@@ -1,5 +1,5 @@
 # Título do Projeto
-Getting started using Virtual Threads
+Começando com Virtual Threadas
 <hr>
 
 ## Versão em Inglês
@@ -8,7 +8,7 @@ Getting started using Virtual Threads
 <hr>
 
 ## Motivação
-Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
+Entender como usar Virtual Threads com Spring Boot, Batch e aplicações standalone
 <hr>
 
 ## Build status
@@ -16,26 +16,27 @@ Understand Virtual Threads using Java 21 with Rest, Batch, and Standalone apps.
 <hr>
 
 ## Quality Gate
-Ignored
+Ignorado
 <hr>
 
 ## O que são Virtual Threads?
-[_From Oracle_](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA) - Virtual threads are lightweight threads that reduce the effort of writing, maintaining, and debugging high-throughput concurrent applications.
+[_From Oracle_](https://docs.oracle.com/en/java/javase/21/core/virtual-threads.html#GUID-DC4306FC-D6C1-4BCC-AECE-48C32C1A8DAA) Virtual Threads são threads leves que reduzem o esforço de gravação, manutenção e depuração de aplicativos simultâneos de alto rendimento.
 
-For background information about virtual threads, see JEP 444.
+Para obter informações básicas sobre threads virtuais, consulte JEP 444.
 
-A thread is the smallest unit of processing that can be scheduled. It runs concurrently with—and largely independently of—other such units. It's an instance of java.lang.Thread. There are two kinds of threads, platform threads and virtual threads.
+Uma Thread é a menor unidade de processamento que pode ser agendada. Funciona simultaneamente com e em grande parte independente de outras unidades semelhantes. É uma instância de java.lang.Thread.
 
 <hr>
 
-## Where can I use Virtual Threads?
-Is recommended when your system is not using the CPU, ie, for **_I/O bound_**.
+## Onde posso usar Threads Virtuais?
 
-**_What do I/O bound mean?_**
+É recomendado quando seu sistema não está utilizando a CPU, ou seja, para **_I/O bound_**.
 
-[From Wikipedia](https://en.wikipedia.org/wiki/I/O_bound), refers to a condition in which the time it takes to complete a computation is determined principally by the period spent waiting for input/output operations to be completed, which can be juxtaposed with being CPU bound. This circumstance arises when the rate at which data is requested is slower than the rate it is consumed or, in other words, more time is spent requesting data than processing it
+**_O que significa I/O bound?_**
 
-Example of scenarios, based on Dan Vega's videos
+[From Wikipedia](https://en.wikipedia.org/wiki/I/O_bound), refere-se a uma condição na qual o tempo necessário para concluir um cálculo é determinado principalmente pelo período gasto aguardando a conclusão das operações de entrada/saída, que pode ser justaposto ao limite da CPU. Esta circunstância surge quando a velocidade a que os dados são solicitados é mais lenta do que a velocidade com que são consumidos ou, por outras palavras, é gasto mais tempo a solicitar dados do que a processá-los.
+
+Exemplo de cenários baseado nos vídeos do Dan Vega
 
 ![Use scenarios](resources/imgs/vt-use-scenarios.png)
 
@@ -43,47 +44,47 @@ Example of scenarios, based on Dan Vega's videos
 <hr>
 
 ## Features
-- Money Transfer
-- Payment Processor
+- Transferência de dinheiro
+- Processador de pagamento 
 <hr>
 
-## Run locally
-To run these projects locally you must have Java 21 installed. My recommendation is to use [SDKMAN!](https://sdkman.io).
+## Executando localmente
+Para executar esses projetos localmente você deve ter o Java 21 instalado. Minha recomendação é usar [SDKMAN!](https://sdkman.io).
 
-Example of my version, [Amazon Corretto 21.0.2](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html), installed via SKDMAN!.
+Exemplo da minha versão, [Amazon Corretto 21.0.2](https://docs.aws.amazon.com/corretto/latest/corretto-21-ug/downloads-list.html), instalado via SKDMAN!.
 ```shell
 sdk list java | grep installed
 Corretto      | >>> | 21.0.2       | amzn    | installed  | 21.0.2-amzn
 ````
 
-- Download the project through GitHub using. If you don't have Git installed, please read [this tutorial first](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Baixe o projeto através do GitHub usando Git. Se você não tem o Git instalado, leia [this tutorial first](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
  ```shell
  git clone https://github.com/luizgustavocosta/virtual-threads.git
  cd virtual-threads 
  ```
 
-### Command line
-- Navigating through the projects
+### Linha de comando
+- Navegando pelos projetos
 
-| # | Name             | Type                           | Depends on items | How to run                         |
-|---|------------------|--------------------------------|------------------|------------------------------------|
-| 1 | bank-service     | Microservice                   | 5,7              | [Here](bank-service/README.md)     |
-| 2 | batch-processing | Batch                          | -                | [Here](batch-processing/README.md) |
-| 3 | k6               | Test                           | 1                | [Here](k6/README.md)               |
-| 4 | resources        | Static files for documentation | -                | N/A                                |
-| 5 | risk-service     | Microservice                   | -                | [Here](risk-service/README.md)     |
-| 6 | standalone       | Program                        | -                | [Here](standalone/README.md)       |
-| 7 | transfer-service | Microservice                   | -                | [Here](transfer-service/README.md) |
+| # | Nome             | Tipo                       | Depende do item | Como executar?                           |
+|---|------------------|----------------------------|-----------------|------------------------------------------|
+| 1 | bank-service     | Microsserviço              | 5,7             | [Aqui](bank-service/README_pt_BR.md)     |
+| 2 | batch-processing | Batch                      | -               | [Aqui](batch-processing/README_pt_BR.md) |
+| 3 | k6               | Teste                      | 1               | [Aqui](k6/README_pt_BR.md)               |
+| 4 | resources        | Arquivos para documentação | -               | N/A                                      |
+| 5 | risk-service     | Microsserviço              | -               | [Aqui](risk-service/README_pt_BR.md)     |
+| 6 | standalone       | Programa                   | -               | [Aqui](standalone/README_pt_BR.md)       |
+| 7 | transfer-service | Microsserviço              | -               | [Aqui](transfer-service/README_pt_BR.md) |
 
 ### Docker compose
-- Only for microservices
+- Somente para os microsserviços
 - Build the image described in each microservice README.md file and then
 ```shell
 docker-compose -f docker-compose.yaml -p virtual-threads up
 ```
 <hr>
 
-## Languages and Tools:
+## Linguagens e ferramentas:
 <div>
   <img width=50px src="resources/imgs/java-vertical.svg">&nbsp;
   <img width=50px src="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg">&nbsp;
@@ -96,7 +97,7 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 </div>
 </br>
 
-| # | Name          | Version                     |
+| # | Nome          | Versão                      |
 |---|---------------|-----------------------------|
 | 1 | Java          | Amazon Corretto 21.0.2.13.1 |
 | 2 | IntelliJ      | 2023.2.5 (Ultimate Edition) |
@@ -110,45 +111,44 @@ docker-compose -f docker-compose.yaml -p virtual-threads up
 
 <hr>
 
-## Architecture:
+## Arquitetura:
 
-### Money Transfer
+### Transferência de dinheiro
 ![img.png](resources/imgs/bank-transfer.png)
 
-### Payment Processor
+### Processador de pagamento
 ![img.png](resources/imgs/payments-processor.png)
 
 
-## Virtual Threads usage scenarios
-### Increase the processing request capacity - Microservices
+## Cenários para uso de Virtual Threads
+### Aumento da capacidade de processamento de requisições - Microsserviço
 
-50 users, i.e., 50 requests on [Thread-Per-Request Model](https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch04s04.html), and the server can handle 10. If you need an overview about the request-per-thread model check out the diagrams below.
+50 usuários, i.e., 50 requisições usando o [Thread-Per-Request Model](https://www.oreilly.com/library/view/head-first-servlets/9780596516680/ch04s04.html), e o servidor pode tratar 10 simutaneamente. Se você precisar de uma visão geral sobre o Thread-Per-Request-Model, verifique os diagramas abaixo.
 
 #### Thread-Per-Request Model
 
-For each client request, ie, the same client sends nth request at same time, one thread will be allocated by Tomcat Web Server to handle the request/response.
+Para cada solicitação do cliente, ou seja, o mesmo cliente envia a enésima solicitação, um thread será alocado pelo Tomcat Web Server para tratar a solicitação/resposta.
 
-The traditional thread model, one application thread is tied to the OS thread.
-
+No modelo de thread tradicional, um thread do aplicativo está vinculado ao thread do sistema operacional.
 ![thread-per-request-generic](resources/imgs/thread-per-request-generic.png)
 
-When **Client A** calls the application the Thread 1 will be tied to this request/response. The same happens to **Client B**, your request will be handled by Thread 10, using as example our application with 10 Threads.
+Quando **Client A** chamar o aplicativo, a Thread 1 será vinculada a esta solicitação/resposta. O mesmo acontece com o **Client B**, a sua solicitação será tratada pela Thread 10, usando como exemplo a nossa aplicação com 10 Threads.
 
 ![thread-per-request-generic-clients](resources/imgs/thread-per-request-generic-clients.png)
 
-This model is fine, until the server runs out of threads. When all the server threads are busy, the **Client X** needs to wait for the next released thread. Nobody likes it.
+Este modelo funciona bem, até que o servidor fique sem threads disponíveis. Quando todos as threads do servidor estão ocupados, o **Client X** precisa aguardar a próximo thread seja liberada. Ninguém gosta disso.
 
 ![thread-per-request-generic-client-waiting](resources/imgs/thread-per-request-generic-client-waiting.png)
 
-With Virtual Threads, all requests will be handled on arrival, increasing the server responsiveness.
+Com Virtual Threads, todas as solicitações serão tratadas na chegada, aumentando a capacidade de resposta do servidor.
 
 ![thread-per-request-virtual-threads](resources/imgs/thread-per-request-virtual-threads.png)
 
-Below you can find the same test for 2 scenarios using 2 different tools, k6 and Apache Benchmarking (learned from Dan Vega's YouTube video)
+Abaixo você pode encontrar o mesmo teste para 2 cenários usando 2 ferramentas diferentes, k6 e Apache Benchmarking (aprendido no vídeo do Dan Vega no YouTube)
 
-- Open the file [application.yaml](bank-service/src/main/resources/application.yaml) and make the following changes
-    - Set the number of Tomcat threads to be `10`. The default value is `200`
-    - Set the property `spring.threads.virtual.enabled` to `true`
+- Abra o arquivo [application.yaml](bank-service/src/main/resources/application.yaml) e faça as seguintes alterações:
+    - Defina o número de threads do Tomcat como `10`. O valor padrão é `200`
+    - Defina a propriedade `spring.threads.virtual.enabled` para `true`
 ```yaml
 server:
   tomcat:
@@ -157,13 +157,13 @@ server:
 spring:      
   threads:
     virtual:
-      enabled: 'true' #'false' depending on test scenario
+      enabled: 'true' #'false' dependendo do cenário de teste
 ```
-#### How to test
+#### Teste de performance 
 - k6
 
 ##### Platform Threads
-Remember to set the property `spring.threads.virtual.enabled` to `false` and start the services bank, risk, and transfer.
+Lembre-se de definir a propriedade `spring.threads.virtual.enabled` como `false` e iniciar os serviços bank, risk e transfer.
 
 ````text
 luizcosta@MacBook-Pro-de-Luiz k6 % k6 run --out json=test.json load_test.js
@@ -208,7 +208,7 @@ INFO[0162] [k6-reporter v2.3.0] Generating HTML summary report  source=console
 
 ````
 
-Remember to set the property `spring.threads.virtual.enabled` to `true` and restart the bank service.
+Lembre-se de definir a propriedade `spring.threads.virtual.enabled` como `true` e reiniciar o serviço do bank.
 
 ##### Virtual Threads
 ````text
@@ -253,27 +253,28 @@ INFO[0033] [k6-reporter v2.3.0] Generating HTML summary report  source=console
      vus_max........................: 50      min=50      max=50%                                                                                        luizcosta@MacBook-Pro-de-Luiz k6 % 
 
 ````
-Comparing the 2 logs, we can see clearly how the Virtual Threads address the concurrent situation 4,5x faster.
-Keep in mind, that just applying one configuration
+Comparando os 2 logs, podemos ver claramente que como Virtual Threads resolvem todas as requisições 4,5x mais rápido que no cenário com Platform Threads.
 
-| # | Configuration    | Requests |Concurrent | Server Threads | Time taken for tests in seconds |
-|---|------------------|----------|-----------|----------------|---------------------------------|
-| 1 | Platform Threads | 400      | 50        |              10| 181.2                           |
-| 2 | Virtual Threads  | 400      | 50        |              10| 33                              |
+Lembre-se de que apenas aplicar as configurações
+
+| # | Configuração     | Requisições | Concorrente | N Threads no servidor | Tempo gasto para os testes em segundos |
+|---|------------------|-------------|-------------|-----------------------|----------------------------------------|
+| 1 | Platform Threads | 400         | 50          | 10                    | 181.2                                  |
+| 2 | Virtual Threads  | 400         | 50          | 10                    | 33                                     |
 
 
 - Apache Benchmarking
 
-Same recommendations of k6 steps
+Mesmas recomendações das etapas k6
 
-The command below is to call the endpoint `http://localhost:8080/v1/transfers` 400 times using 50 concurrent requests and wait 30 seconds for timeout
+O comando abaixo é para chamar o endpoint `http://localhost:8080/v1/transfers` 400 vezes usando 50 solicitações simultâneas e aguardar 30 segundos de tempo limite
 
 ````shell
 ab -n 400 -c 50 -s 30 -p 'resources/payload/transfer.json' -T 'application/json' http://localhost:8080/v1/transfers
 ````
 #### Platform Threads
 
-Remember to set the property `spring.threads.virtual.enabled` to `false` and start the services bank, risk and transfer.
+Lembre-se de definir a propriedade `spring.threads.virtual.enabled` como `false` e iniciar os serviços bank, risk e transfer.
 
 ```text
 luizcosta@MacBook-Pro-de-Luiz virtual-threads % ab -n 400 -c 50 -s 30 -p 'resources/payload/transfer.json' -T 'application/json' http://localhost:8080/v1/transfers 
@@ -331,7 +332,7 @@ Percentage of the requests served within a certain time (ms)
 ```
 #### Virtual Threads
 
-Remember to set the property `spring.threads.virtual.enabled` to `true` and restart the bank service.
+Lembre-se de definir a propriedade `spring.threads.virtual.enabled` como `true` e reiniciar o serviço do bank.
 
 ```text
 luizcosta@MacBook-Pro-de-Luiz virtual-threads % ab -n 400 -c 50 -s 30 -p 'resources/payload/transfer.json' -T 'application/json' http://localhost:8080/v1/transfers
@@ -387,22 +388,23 @@ Percentage of the requests served within a certain time (ms)
  100%   4233 (longest request)
 luizcosta@MacBook-Pro-de-Luiz virtual-threads 
 ```
-Comparing the 2 logs, we can see clearly how the Virtual Threads address the concurrent situation 4,5x faster.
-Keep in mind, that just applying one configuration
 
-| # | Configuration    | Requests |Concurrent | Server Threads | Time taken for tests in seconds |
-|---|------------------|----------|-----------|----------------|---------------------------------|
-| 1 | Platform Threads | 400      | 50        |              10|                          165.570|
-| 2 | Virtual Threads  | 400      | 50        |              10|                           36.677|
+Comparando os 2 logs, podemos ver claramente como Virtual Threads resolvem a situação simultânea 4,5x mais rápido.
+Lembre-se de que apenas aplicar uma configuração
+
+| # | Configuração     | Requisições | Concorrentes | Server Threads | Time taken for tests in seconds |
+|---|------------------|-------------|--------------|----------------|---------------------------------|
+| 1 | Platform Threads | 400         | 50           |              10|                          165.570|
+| 2 | Virtual Threads  | 400         | 50           |              10|                           36.677|
 
 
-### Increase the processing capacity - Batching
-Inside the **Step**, call the **taskExecutor** and send as a parameter the code below. Voilà, Virtual Threads in Action for Spring Batch
+### Aumentar a capacidade de processamento - Lote
+Dentro do **Step**, chame o **taskExecutor** e envie como parâmetro o código abaixo. Voilà, Virtual Threads em Ação para Spring Batch
 ```java
 .taskExecutor(new VirtualThreadTaskExecutor("VirtualThread-"))
 ```
 
-## References
+## Referências
 - [JEP-444](https://openjdk.org/jeps/444)
 - [Spring Blog](https://spring.io/blog/2023/09/20/hello-java-21)
 - [YouTube - Java 21 new feature: Virtual Threads](https://www.youtube.com/watch?v=5E0LU85EnTI)

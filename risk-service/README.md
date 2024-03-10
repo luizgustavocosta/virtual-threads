@@ -60,7 +60,7 @@ This API has only endpoint that responds after 3 seconds, in order to simulate a
 
 ### Examples of usage
 
-#### Transfer
+#### Risk evaluation
 ````shell
 curl -X 'GET' \
   'http://localhost:8081/v1/risks/transaction/1234-5678/cellphone' \
